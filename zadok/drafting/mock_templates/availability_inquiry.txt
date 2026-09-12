@@ -1,0 +1,13 @@
+fields: client_display_name, expressed_interests
+---
+Hi {client_first_name},
+
+Thank you for thinking of us for the {primary_interest}. I don't have an availability update I can confirm for you today, but your interest remains noted with me personally, and I'd be glad to pursue the request on your behalf and follow up the moment there is something meaningful to share.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+I appreciate you reaching out about the {primary_interest}. There isn't an update I can confirm by email today; your interest stays noted with me, and I'll contact you directly when I have something meaningful. You're always welcome to come see us in the meantime.
+
+{advisor_sign_off}

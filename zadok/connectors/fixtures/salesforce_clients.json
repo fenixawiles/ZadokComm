@@ -1,0 +1,63 @@
+[
+  {
+    "id": "C-1001",
+    "email": "alex.morgan@example.com",
+    "display_name": "Alex Morgan",
+    "client_status": "existing",
+    "relationship_summary": "Client for 5 years; steady relationship with consistent Rolex interest.",
+    "purchase_history_summary": "Rolex purchase in 2023; earlier anniversary gift purchase.",
+    "expressed_interests": ["GMT-Master II"],
+    "last_visit_summary": "Visited the showroom on August 19 to discuss the GMT-Master II.",
+    "last_contact_summary": "Advisor follow-up note sent August 19.",
+    "availability_policy_state": "no_availability_discussion",
+    "appointment_availability": [],
+    "advisor_slug": "sarah-kline",
+    "inventory": {
+      "_comment": "DECOY. Synthetic stock data planted to prove the contamination barrier: tests assert this block can never reach a drafting engine.",
+      "GMT-Master II": 1,
+      "Submariner Date": 0
+    }
+  },
+  {
+    "id": "C-1002",
+    "email": "daniel.ruiz@example.com",
+    "display_name": "Daniel Ruiz",
+    "client_status": "existing",
+    "relationship_summary": "Client for 3 years; relationship currently strained by follow-up gaps.",
+    "purchase_history_summary": "Two prior purchases, most recently in 2024.",
+    "expressed_interests": ["Submariner Date"],
+    "last_visit_summary": "Last visited in the spring.",
+    "last_contact_summary": "Has checked in three times about the Submariner; last advisor reply August 22.",
+    "availability_policy_state": "no_availability_discussion",
+    "appointment_availability": [],
+    "advisor_slug": "michael-trent"
+  },
+  {
+    "id": "C-1003",
+    "email": "casey.bennett@example.com",
+    "display_name": "Casey Bennett",
+    "client_status": "existing",
+    "relationship_summary": "Client for 1 year; warm relationship after a recent purchase.",
+    "purchase_history_summary": "Datejust 31 purchase earlier this year.",
+    "expressed_interests": ["Datejust 31"],
+    "last_visit_summary": "Picked up their watch two weeks ago.",
+    "last_contact_summary": "Thank-you note exchanged after pickup.",
+    "availability_policy_state": "waitlist_discussion_allowed",
+    "appointment_availability": [],
+    "advisor_slug": "sarah-kline"
+  },
+  {
+    "id": "C-1004",
+    "email": "victor.hale@example.com",
+    "display_name": "Victor Hale",
+    "client_status": "existing",
+    "relationship_summary": "Client for 2 years; direct communicator, prefers short answers.",
+    "purchase_history_summary": "One purchase in 2024.",
+    "expressed_interests": ["Explorer II"],
+    "last_visit_summary": "Stopped in briefly last month.",
+    "last_contact_summary": "Brief email exchange last month.",
+    "availability_policy_state": "no_availability_discussion",
+    "appointment_availability": [],
+    "advisor_slug": "michael-trent"
+  }
+]

@@ -1,0 +1,13 @@
+fields: client_display_name
+---
+Hi {client_first_name},
+
+Thank you for your note. I want to give this the attention it deserves, so I'm looking into it personally and will follow up with you directly very soon.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+I appreciate you writing. Let me look into this properly rather than give you a rushed answer — I'll come back to you personally shortly.
+
+{advisor_sign_off}

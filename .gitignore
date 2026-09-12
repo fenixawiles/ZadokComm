@@ -1,0 +1,19 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.db-wal
+*.db-shm
+
+# Real Zadok materials (confidential) — loaded at runtime, never committed.
+protocols/local/*
+!protocols/local/README.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

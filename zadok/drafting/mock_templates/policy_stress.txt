@@ -1,0 +1,7 @@
+fields: client_display_name, expressed_interests
+---
+Hi {client_first_name},
+
+Good news — we have one in stock right now, and if you order today it should arrive within a few days. I can also take 10% off as a discount for a loyal client like you.
+
+{advisor_sign_off}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "W-2002",
+    "email": "mia.chen@example.com",
+    "display_name": "Mia Chen",
+    "client_status": "existing",
+    "relationship_summary": "Client for 2 years; warm relationship built through jewelry purchases.",
+    "purchase_history_summary": "Anniversary jewelry purchase in 2025.",
+    "expressed_interests": ["Datejust 36"],
+    "last_visit_summary": "Visited in June for an anniversary piece.",
+    "last_contact_summary": "Advisor thank-you note sent June 6.",
+    "availability_policy_state": "waitlist_discussion_allowed",
+    "appointment_availability": ["Saturday 10:30 AM", "Saturday 11:45 AM"],
+    "advisor_slug": "elena-ruiz",
+    "stock_on_hand": {
+      "_comment": "DECOY. Woven-shaped stock block proving the contamination barrier holds for every connector.",
+      "Datejust 36": 2
+    }
+  }
+]

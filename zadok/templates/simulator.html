@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Message simulator — Zadok shell{% endblock %}
+{% block content %}
+<main class="sim-shell">
+  <div class="sim-card">
+    <h1>Inbound message simulator</h1>
+    <p class="login-note">Development only. Injects synthetic messages through the real ingestion pipeline
+      (triage → context → draft → audit). <a href="{{ url_for('review.inbox') }}">Back to inbox</a></p>
+    <h2>Scenarios</h2>
+    <div class="sim-grid">
+      {% for name, scenario in scenarios.items() %}
+      <button class="button button-secondary sim-button" data-scenario="{{ name }}" type="button">
+        <strong>{{ scenario['title'] }}</strong>
+        <span>{{ scenario['body'][:90] }}…</span>
+      </button>
+      {% endfor %}
+    </div>
+    <h2>Freeform</h2>
+    <form id="freeform">
+      <input name="from_email" type="email" placeholder="client email (matches fixtures or routes to new-client team)" required />
+      <input name="from_name" type="text" placeholder="client name (optional)" />
+      <input name="subject" type="text" placeholder="subject (optional)" />
+      <textarea name="body" rows="4" placeholder="message body" required></textarea>
+      <button class="button button-send" type="submit">Inject</button>
+    </form>
+    <pre id="sim-result" hidden></pre>
+  </div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script>
+  const result = document.getElementById("sim-result");
+  async function inject(payload) {
+    const res = await fetch("{{ url_for('devtools.inject') }}", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+    });
+    result.hidden = false;
+    result.textContent = JSON.stringify(await res.json(), null, 2);
+  }
+  document.querySelectorAll(".sim-button").forEach((button) =>
+    button.addEventListener("click", () => inject({ scenario: button.dataset.scenario })));
+  document.getElementById("freeform").addEventListener("submit", (event) => {
+    event.preventDefault();
+    inject(Object.fromEntries(new FormData(event.target)));
+  });
+</script>
+{% endblock %}

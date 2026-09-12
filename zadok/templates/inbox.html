@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}Zadok Client Inbox{% endblock %}
+{% block content %}
+<div class="app" id="app"
+     data-advisor-name="{{ advisor['display_name'] }}"
+     data-advisor-signoff="{{ advisor['sign_off_name'] }}">
+  <aside class="inbox" aria-label="Client conversations">
+    <header class="inbox-header">
+      <div class="brand-mark" aria-hidden="true">Z</div>
+      <div><strong>Zadok CRM</strong><span>Client messaging</span></div>
+    </header>
+
+    <div class="inbox-title">
+      <div><h1>Messages</h1><span>Client conversations</span></div>
+      <span class="demo-chip">Shell · Mock CRM</span>
+    </div>
+
+    <nav class="conversation-list" id="conversation-list" aria-live="polite"></nav>
+
+    <div class="scope-block">
+      <div class="scope-copy">
+        <strong>Assist scope</strong>
+        <span id="scope-label">…</span>
+      </div>
+      <button class="button button-secondary" id="scope-toggle" type="button">…</button>
+    </div>
+
+    <footer class="advisor">
+      <span class="avatar avatar-gold" id="advisor-avatar"></span>
+      <div><strong>{{ advisor['display_name'] }}</strong><span>{{ 'New-client inbox' if advisor['role'] == 'new_client_team' else 'Client advisor' }}</span></div>
+      <div class="advisor-links">
+        {% if app_env != 'production' %}<a href="{{ url_for('devtools.simulator') }}" title="Message simulator">Simulator</a>
+        <a href="{{ url_for('auth.login') }}" title="Switch advisor">Switch</a>{% endif %}
+        <form method="post" action="{{ url_for('auth.logout') }}"><button type="submit">Sign out</button></form>
+      </div>
+    </footer>
+  </aside>
+
+  <main class="thread" id="thread-pane" hidden>
+    <header class="thread-header">
+      <div class="client-heading">
+        <span class="avatar avatar-green" id="header-avatar"></span>
+        <div><h2 id="header-name"></h2><p id="header-subtitle"></p></div>
+      </div>
+      <div class="header-tools">
+        <details class="context-panel" id="history-panel">
+          <summary>History <span id="history-count"></span></summary>
+          <div class="context-content audit-content" id="history-content"></div>
+        </details>
+        <details class="context-panel" id="context-panel">
+          <summary>Client context <span id="context-count"></span></summary>
+          <div class="context-content" id="context-content"></div>
+        </details>
+      </div>
+    </header>
+
+    <section class="messages" id="messages" aria-label="Message thread"></section>
+
+    <section class="composer" id="composer" aria-labelledby="draft-title" hidden>
+      <div class="composer-heading">
+        <div><span class="reply-icon" aria-hidden="true">↩</span>
+          <div><h3 id="draft-title"></h3><p id="draft-status"></p></div></div>
+        <span class="complex-chip" id="complex-chip" hidden>Complex — review carefully</span>
+      </div>
+
+      <div class="flag-banner" id="flag-banner" hidden>
+        <strong id="flag-banner-title">Needs attention</strong>
+        <ul id="flag-list"></ul>
+        <div class="flag-actions" id="flag-ack-row" hidden>
+          <span>Send anyway? The acknowledgment is recorded in the audit trail.</span>
+          <button class="button button-secondary" id="ack-send-button" type="button">Acknowledge &amp; send</button>
+        </div>
+      </div>
+
+      <div class="schedule-note" id="schedule-note" hidden>
+        <strong>Appointment request detected</strong>
+        <span id="schedule-copy"></span>
+      </div>
+
+      <div id="profile-cards"></div>
+
+      <textarea id="draft-text" aria-label="Proposed response" readonly></textarea>
+
+      <div class="composer-footer">
+        <p id="composer-note">Shell demo · The mock sender records the send; nothing leaves this machine.</p>
+        <div class="primary-actions">
+          <button class="button button-ghost" id="discard-button" type="button">Discard</button>
+          <button class="button button-secondary" id="regenerate-button" type="button">Regenerate</button>
+          <button class="button button-secondary" id="edit-button" type="button">Edit</button>
+          <button class="button button-send" id="send-button" type="button">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="composer personal-block" id="personal-block" hidden>
+      <div class="composer-heading">
+        <div><span class="reply-icon" aria-hidden="true">✍</span>
+          <div><h3>This looks like one to answer personally</h3>
+            <p>Triage routed this to you — no draft was prepared. You can still ask for one.</p></div></div>
+      </div>
+      <div id="personal-profile-cards"></div>
+      <div class="composer-footer">
+        <p>Complex and sensitive messages stay with the advisor by default.</p>
+        <div class="primary-actions">
+          <button class="button button-secondary" id="draft-anyway-button" type="button">Draft anyway</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="composer quiet-block" id="quiet-block" hidden>
+      <div class="composer-heading">
+        <div><span class="reply-icon" aria-hidden="true">✓</span>
+          <div><h3 id="quiet-title">All caught up</h3><p id="quiet-copy"></p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <main class="thread empty-state" id="empty-pane">
+    <p>Select a conversation.</p>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='inbox.js') }}"></script>
+{% endblock %}

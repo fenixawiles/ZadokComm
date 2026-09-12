@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Sign in — Zadok Client Inbox{% endblock %}
+{% block content %}
+<main class="login-shell">
+  <form class="login-card" method="post" action="{{ url_for('auth.login_submit') }}">
+    <div class="login-brand">
+      <div class="brand-mark" aria-hidden="true">Z</div>
+      <div><strong>Zadok CRM</strong><span>Client messaging shell</span></div>
+    </div>
+    <h1>Choose your inbox</h1>
+    <p class="login-note">Development sign-in. Synthetic data only — nothing here sends externally.</p>
+    {% if error %}<p class="login-error">{{ error }}</p>{% endif %}
+    <div class="advisor-grid" role="radiogroup" aria-label="Advisor">
+      {% for advisor in advisors %}
+      <label class="advisor-card">
+        <input type="radio" name="advisor_slug" value="{{ advisor['slug'] }}" {% if loop.first %}checked{% endif %} />
+        <span class="avatar avatar-{{ loop.cycle('green','gold','slate','blue') }}">{{ advisor['display_name'].split(' ')|map('first')|join('')|upper }}</span>
+        <span class="advisor-card-copy">
+          <strong>{{ advisor['display_name'] }}</strong>
+          <span>{{ 'New-client inbox' if advisor['role'] == 'new_client_team' else 'Client advisor' }}</span>
+        </span>
+      </label>
+      {% endfor %}
+    </div>
+    <label class="passcode-label" for="passcode">Passcode</label>
+    <input id="passcode" name="passcode" type="password" autocomplete="current-password" placeholder="Development passcode" required />
+    <button class="button button-send login-submit" type="submit">Open inbox</button>
+  </form>
+</main>
+{% endblock %}
