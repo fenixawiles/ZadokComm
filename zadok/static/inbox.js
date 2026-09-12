@@ -129,14 +129,18 @@ async function openThread(threadId) {
   state.ackArmed = false;
   renderThreadList();
   const { ok, body } = await api(`/api/threads/${threadId}`);
-  if (!ok) return;
+  // A slower response for a thread the advisor has already left must not
+  // render over the current selection (its action buttons would then target
+  // the wrong draft).
+  if (!ok || state.activeId !== threadId) return;
   state.thread = body;
   renderThread(true);
 }
 
 async function refreshThread() {
-  const { ok, body } = await api(`/api/threads/${state.activeId}`);
-  if (ok) {
+  const threadId = state.activeId;
+  const { ok, body } = await api(`/api/threads/${threadId}`);
+  if (ok && state.activeId === threadId) {
     state.thread = body;
     renderThread(false);
   }

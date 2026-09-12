@@ -12,7 +12,7 @@ from ..db import get_db
 from ..domain import states
 from ..domain.intents import APPOINTMENT_REQUEST, PERSONAL
 from ..drafting import service as drafting_service
-from ..drafting.guardrails import final_scan
+from ..drafting.guardrails import Flag, final_scan
 from ..outbound.sender import resolve_sender
 from ..repos import drafts as drafts_repo
 from ..repos import messages as messages_repo
@@ -347,9 +347,33 @@ def api_approve(draft_id: int):
     if drafts_repo.approved_exists(db, draft["in_reply_to_message_id"]):
         return jsonify({"error": "a reply was already sent for this message"}), 409
 
+    # A draft only answers the message it was prepared for: if the client has
+    # written again since, a stale tab must not send context-blind text (and
+    # must not clear the newer message's SLA aging).
+    latest = messages_repo.latest_inbound(db, thread["id"])
+    if latest is not None and latest["id"] != draft["in_reply_to_message_id"]:
+        return jsonify({"error": "newer_message_arrived",
+                        "detail": "A newer client message reached this thread; refresh and reply to it instead."}), 409
+
     advisor = current_advisor()
-    final_text = drafts_repo.final_text(draft)
+    final_text = drafts_repo.final_text(draft).strip()
+    if not final_text:
+        # Hard block, not acknowledgeable: an empty reply is never sendable.
+        return jsonify({"error": "empty_reply",
+                        "detail": "This draft has no text; regenerate or edit before sending."}), 409
+
     flags = final_scan(final_text)
+    if draft["status"] == states.NEEDS_ATTENTION:
+        # Draft-time flags the final scan cannot re-derive from the text alone
+        # (wrong sign-off, unsupported claims, model self-reports) still gate
+        # an unedited draft; an advisor edit supersedes them deliberately.
+        seen = {f.id for f in flags}
+        for stored in loads(draft["guardrail_flags_json"], []) or []:
+            flag_id = stored.get("id", "stored_flag")
+            if flag_id not in seen:
+                flags.append(Flag(flag_id, stored.get("label", "Flagged at draft time"),
+                                  stored.get("matched_span", "")))
+                seen.add(flag_id)
     acknowledge = bool((request.get_json(silent=True) or {}).get("acknowledge_flags"))
     if flags and not acknowledge:
         return jsonify({"error": "flags_require_acknowledgment",

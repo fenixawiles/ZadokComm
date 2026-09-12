@@ -119,6 +119,10 @@ class OpenAIDraftEngine(DraftEngine):
             draft_text = payload["draft_text"]
         except (json.JSONDecodeError, KeyError, TypeError) as exc:
             return _failure(OUTCOME_ERROR, f"unparseable structured output: {exc}")
+        if not str(draft_text).strip():
+            # Structurally valid JSON can still carry an empty email; treat it
+            # like any other empty result so it lands as a failed draft.
+            return _failure(OUTCOME_EMPTY, "model returned an empty draft_text")
 
         intent = payload.get("intent")
         return DraftResult(
