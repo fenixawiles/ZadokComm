@@ -1,20 +1,18 @@
 # Zadok Client Communication Concept Demo
 
-This repository contains a self-contained, synthetic demonstration of an internal communication-assistance workflow for a luxury jewelry retailer.
+This repository contains a self-contained, synthetic demonstration of an embedded CRM communication workflow for a luxury jewelry retailer.
 
-It is intentionally not presented as a SaaS product. The demo focuses on one operational problem: helping busy client advisors prepare individualized responses without exposing restricted information, inventing facts, or removing human review.
+It is intentionally not presented as a separate SaaS product. The demo focuses on one operational problem: helping busy client advisors respond to inbound messages without leaving their existing conversation thread.
 
 ## Demonstrated workflow
 
-1. Open an incoming client email.
-2. Resolve the client or identify a new prospect.
-3. Assemble approved relationship context from mock Salesforce and Woven records.
-4. Apply illustrative communication guardrails.
-5. Prepare an editable response for the advisor.
-6. Offer matching mock appointment times with the assigned advisor or new-client team.
-7. Keep final approval and sending with a person.
+1. An inbound client email appears in the mock CRM conversation.
+2. A proposed response is already present when the advisor opens the thread.
+3. Approved relationship context influences the response silently.
+4. The advisor can Send, Edit, or Regenerate without leaving the thread.
+5. Appointment availability is used only when the inbound message is actually requesting a visit.
 
-The interface intentionally contains only two examples—an existing client and a first-time customer—so the communication problem and proposed solution are immediately clear.
+The interface includes product, complaint, scheduling, and first-time-customer conversations to demonstrate intent-sensitive planning.
 
 All names, records, messages, availability, policies, and appointment times are fictional. Nothing in the demo connects to Zadok, Salesforce, Woven, a calendar, inventory, or a messaging system.
 
