@@ -1,0 +1,13 @@
+fields: client_display_name, expressed_interests, appointment_slots
+---
+Hi {client_first_name},
+
+I'd be delighted to see you. I'm available {slots_list} — would either time suit you? We can take our time with the {primary_interest} options together.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+It would be a pleasure to have you back in the showroom. I have {slots_list} open — let me know which works better and I'll set the time aside for us to look at the {primary_interest} together.
+
+{advisor_sign_off}

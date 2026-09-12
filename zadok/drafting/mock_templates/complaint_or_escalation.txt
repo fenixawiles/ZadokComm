@@ -1,0 +1,13 @@
+fields: client_display_name, expressed_interests, last_contact_summary
+---
+Hi {client_first_name},
+
+You're right to expect clearer communication from me, and I'm sorry my follow-up has fallen short. I don't have a new update I can confirm for you today. Your interest in the {primary_interest} remains noted, and I will handle every future follow-up with you personally and directly.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+I understand your frustration, and I'm sorry — the gaps in my communication are mine to own. There isn't a new update I can confirm today, but your interest in the {primary_interest} remains active, and you'll hear from me directly the moment that changes.
+
+{advisor_sign_off}

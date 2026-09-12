@@ -1,0 +1,15 @@
+fields: client_display_name, expressed_interests, relationship_summary
+---
+Hi {client_first_name},
+
+Thank you for checking in — I know the {primary_interest} has been on your mind. I don't have an availability update I can confirm for you today, but your interest remains noted, and I'll reach out personally the moment there is something meaningful to share.
+
+You're always welcome in the showroom in the meantime.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+Good to hear from you. There isn't a new update I can confirm today on the {primary_interest}, but your interest remains active with me, and I'll be in touch directly when there is something meaningful to discuss.
+
+{advisor_sign_off}

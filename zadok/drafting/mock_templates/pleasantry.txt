@@ -1,0 +1,13 @@
+fields: client_display_name, purchase_history_summary
+---
+Hi {client_first_name},
+
+Thank you for the kind note — it genuinely made my day. It was a pleasure, and I hope the piece continues to bring you joy. My door is always open whenever you'd like to stop in.
+
+{advisor_sign_off}
+===
+Hi {client_first_name},
+
+That's so thoughtful of you — thank you. Working with you was a pleasure, and I hope you're enjoying the piece as much as we enjoyed helping you find it. Come see us anytime.
+
+{advisor_sign_off}

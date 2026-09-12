@@ -1,0 +1,17 @@
+fields: client_display_name
+---
+Hello {client_first_name},
+
+Thank you for your interest and for considering us. I'm not able to confirm availability by email, but I'd be delighted to welcome you to the boutique and connect you with one of our dedicated advisors, who will explore the collection with you, request the model from Rolex on your behalf, and answer any questions you may have.
+
+Appointments are available Monday through Friday from 10:00 AM to 4:30 PM, and you're always welcome to walk in if that suits you better.
+
+{advisor_sign_off}
+===
+Hello {client_first_name},
+
+It's a pleasure to meet you, and thank you for reaching out. While I can't confirm availability by email, building a lasting connection with our clients is central to what we do — I'd love to introduce you to one of our dedicated advisors, who can pursue the model you have in mind on your behalf.
+
+We see clients Monday through Friday from 10:00 AM to 4:30 PM, and walk-ins are always welcome.
+
+{advisor_sign_off}
