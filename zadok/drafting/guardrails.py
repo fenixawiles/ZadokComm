@@ -41,7 +41,8 @@ _FORBIDDEN = _bank([
     ("delivery_promise", "Promises or estimates delivery timing",
      r"\bwill\s+(?:arrive|be\s+here|come\s+in|be\s+in|land)\s+(?:by|within|in|this|next)\b|\beta\b"
      r"|\bship(?:ping|ped)?\s+(?:by|within|out)\b|\bexpect(?:ed)?\s+(?:it|delivery|arrival)\s+(?:by|within|in)\b"
-     r"|\b(?:a\s+few\s+|\d+\s*)(?:days|weeks|months)\s+out\b|\bshould\s+arrive\b"),
+     r"|\b(?:a\s+few\s+|\d+\s*|(?:one|two|three|four|five|six|seven|eight|nine|ten)\s+)"
+     r"(?:days?|weeks?|months?)\s+out\b|\bshould\s+arrive\b"),
     ("discount_talk", "Mentions discounts or special pricing",
      r"\bdiscount(?:s|ed)?\b|%\s*off\b|\bspecial\s+pricing\b|\bprice\s+match\b|\bmarkdown\b"
      r"|\bbest\s+price\b|\bdeal\s+for\s+you\b"),
