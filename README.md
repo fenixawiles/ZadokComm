@@ -14,6 +14,8 @@ It is intentionally not presented as a SaaS product. The demo focuses on one ope
 6. Offer matching mock appointment times with the assigned advisor or new-client team.
 7. Keep final approval and sending with a person.
 
+The interface intentionally contains only two examples—an existing client and a first-time customer—so the communication problem and proposed solution are immediately clear.
+
 All names, records, messages, availability, policies, and appointment times are fictional. Nothing in the demo connects to Zadok, Salesforce, Woven, a calendar, inventory, or a messaging system.
 
 ## Run locally

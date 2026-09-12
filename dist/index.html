@@ -3,233 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A synthetic concept demo for relationship-aware client communication and appointment coordination."
-    />
-    <title>Zadok Client Concierge — Concept Demo</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d2f27'/%3E%3Cpath d='M8 9h16l-9 14h10' fill='none' stroke='%23d7b46a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
-    />
+    <meta name="description" content="A synthetic demonstration of faster, relationship-aware client email replies." />
+    <title>Zadok Reply Assistant — Concept Demo</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a3128'/%3E%3Cpath d='M8 9h16l-9 14h10' fill='none' stroke='%23e1c678' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Primary navigation">
-        <div class="brand-mark" aria-label="Zadok Client Concierge">
-          <span class="brand-z">Z</span>
-          <span class="brand-name">ZADOK</span>
-        </div>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">Z</span>
+        <div><strong>ZADOK</strong><span>Reply Assistant · Concept</span></div>
+      </div>
+      <span class="demo-label"><i></i> Synthetic demo data</span>
+    </header>
 
-        <nav class="side-nav">
-          <button class="nav-item active" type="button" aria-current="page">
-            <span class="nav-icon">⌁</span>
-            <span>Client inbox</span>
-            <span class="nav-count">4</span>
-          </button>
-          <button class="nav-item" type="button">
-            <span class="nav-icon">□</span>
-            <span>Appointments</span>
-            <span class="nav-count muted">3</span>
-          </button>
-          <button class="nav-item" type="button">
-            <span class="nav-icon">◫</span>
-            <span>Review queue</span>
-          </button>
-        </nav>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="overline">ONE COMMUNICATION PROBLEM</p>
+        <h1 id="page-title">Help busy advisors answer client emails faster.</h1>
+        <p>The advisor still reviews every word. Nothing is sent automatically.</p>
+      </section>
 
-        <div class="sidebar-footer">
-          <div class="avatar">SK</div>
-          <div>
-            <strong>Sarah Kline</strong>
-            <span>Client Advisor</span>
-          </div>
-        </div>
-      </aside>
-
-      <main>
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">CLIENT CONCIERGE</p>
-            <h1>Client communication workspace</h1>
-          </div>
-          <div class="demo-badge"><span></span> Concept demo · Synthetic data</div>
-        </header>
-
-        <section class="scenario-bar" aria-label="Demo scenario controls">
-          <div>
-            <span class="section-kicker" id="scenario-number">DEMO SCENARIO 01</span>
-            <h2 id="scenario-title">Existing client asks about availability</h2>
-          </div>
-          <div class="scenario-actions">
-            <label class="scenario-picker">
-              <span class="sr-only">Choose a demo scenario</span>
-              <select id="scenario-select" aria-label="Choose a demo scenario">
-                <option value="existing">Existing client · GMT</option>
-                <option value="new">New prospect · Daytona</option>
-                <option value="frustrated">Frustrated client · Submariner</option>
-                <option value="appointment">Appointment request · Datejust</option>
-                <option value="advisor">Previous advisor request</option>
-              </select>
-            </label>
-            <button class="button button-quiet" id="compare-button" type="button">Compare generic AI</button>
-            <button class="button button-primary" id="run-demo" type="button">
-              <span>Run this scenario</span>
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </section>
-
-        <section class="workflow" aria-label="AI workflow status">
-          <div class="workflow-step complete" data-step="1"><span>1</span><p>Client resolved<small id="workflow-identity">Salesforce</small></p></div>
-          <div class="workflow-line"></div>
-          <div class="workflow-step complete" data-step="2"><span>2</span><p>Context gathered<small>Woven + CRM</small></p></div>
-          <div class="workflow-line"></div>
-          <div class="workflow-step complete" data-step="3"><span>3</span><p>Guardrails applied<small id="workflow-policy-count">2 policies</small></p></div>
-          <div class="workflow-line"></div>
-          <div class="workflow-step current" data-step="4"><span>4</span><p>Draft ready<small>Human review</small></p></div>
-        </section>
-
-        <section class="workspace-grid">
-          <div class="context-column">
-            <article class="card message-card">
-              <div class="card-heading">
-                <div>
-                  <span class="section-kicker">INCOMING MESSAGE</span>
-                  <h3 id="client-name">Alex Morgan</h3>
-                </div>
-                <span class="source-tag">EMAIL</span>
-              </div>
-              <div class="message-meta"><span id="message-time">Today, 11:42 AM</span><span id="message-to">To: Sarah Kline</span></div>
-              <blockquote id="message-body">
-                Hey Sarah — any luck with the GMT we talked about? If you’ve got one, I can come by this afternoon.
-              </blockquote>
-            </article>
-
-            <article class="card client-card">
-              <div class="card-heading compact">
-                <div>
-                  <span class="section-kicker">CLIENT SNAPSHOT</span>
-                  <h3>Relationship context</h3>
-                </div>
-                <span class="relationship-pill" id="relationship-pill">Existing client</span>
-              </div>
-              <dl class="client-facts">
-                <div><dt>Relationship</dt><dd id="fact-relationship">5 years</dd></div>
-                <div><dt>Assigned advisor</dt><dd id="fact-advisor">Sarah Kline</dd></div>
-                <div><dt>Known interest</dt><dd id="fact-interest">GMT-Master II</dd></div>
-                <div><dt>Recent activity</dt><dd id="fact-activity">Store visit · 42 days ago</dd></div>
-              </dl>
-              <div class="history-row" id="history-row">
-                <span class="history-year">2023</span>
-                <span id="history-text">Previous Rolex purchase</span>
-                <span class="source-tag subtle">SALESFORCE</span>
-              </div>
-            </article>
-
-            <article class="card appointment-card" aria-labelledby="appointment-heading">
-              <div class="card-heading compact">
-                <div>
-                  <span class="section-kicker">RECOMMENDED NEXT STEP</span>
-                  <h3 id="appointment-heading">Offer an appointment</h3>
-                </div>
-                <span class="calendar-status"><span></span> Mock availability</span>
-              </div>
-              <div class="advisor-match">
-                <div class="avatar inverse" id="appointment-initials">SK</div>
-                <div><strong id="appointment-advisor">Sarah Kline</strong><span id="appointment-reason">Alex’s assigned representative</span></div>
-              </div>
-              <div class="appointment-details">
-                <div><span>Location</span><strong id="appointment-location">Houston · Post Oak</strong></div>
-                <div><span>Date</span><strong id="appointment-date">Today · Sep 11</strong></div>
-              </div>
-              <div class="slot-list" id="slot-list" aria-label="Available appointment times">
-                <button class="slot active" type="button">2:30 PM</button>
-                <button class="slot" type="button">4:00 PM</button>
-                <button class="slot" type="button">5:15 PM</button>
-              </div>
-              <button class="button button-appointment" id="book-button" type="button">Prepare 2:30 PM appointment</button>
-              <p class="appointment-footnote">Demo only — this does not create a real calendar event.</p>
-            </article>
-          </div>
-
-          <article class="card response-card">
-            <div class="response-header">
-              <div>
-                <span class="section-kicker">AI-ASSISTED DRAFT</span>
-                <h3 id="draft-heading">Response for Sarah to review</h3>
-              </div>
-              <div class="pass-pill"><span>✓</span> Policy check passed</div>
-            </div>
-
-            <div class="analysis-strip">
-              <div><span>Intent</span><strong id="analysis-intent">Availability inquiry</strong></div>
-              <div><span>Purchase intent</span><strong id="analysis-purchase">High</strong></div>
-              <div><span>Strategy</span><strong id="analysis-strategy">Maintain interest + invite</strong></div>
-            </div>
-
-            <div class="draft-box" id="draft-box" role="textbox" aria-label="Generated response draft" contenteditable="true">
-              Hi Alex,
-              <br /><br />
-              Great to hear from you. I remember our conversation about the GMT-Master II. I’d be glad to connect this afternoon and continue the conversation in person.
-              <br /><br />
-              I have time at 2:30 or 4:00 today—would either work for you?
-              <br /><br />
-              Sarah
-            </div>
-
-            <div class="safety-note">
-              <span class="shield">✓</span>
-              <div><strong id="safety-title">Sensitive inventory protected</strong><p id="safety-copy">The draft keeps Alex engaged without confirming inventory, allocation, or delivery timing.</p></div>
-            </div>
-
-            <details class="trace-panel">
-              <summary>View decision trace <span>Structured audit · no hidden reasoning</span></summary>
-              <div class="trace-grid">
-                <div><span>Identity</span><strong id="trace-identity">Exact email match · C-001</strong></div>
-                <div><span>Context used</span><strong id="trace-context">3 CRM records · 4 messages</strong></div>
-                <div><span>Policies</span><strong id="trace-policies">Restricted inventory · No guarantee</strong></div>
-                <div><span>Routing</span><strong id="trace-routing">Assigned advisor · Sarah Kline</strong></div>
-              </div>
-            </details>
-
-            <div class="response-actions">
-              <button class="button button-quiet" id="regenerate-button" type="button">Regenerate</button>
-              <button class="button button-dark" id="approve-button" type="button">Approve draft</button>
-            </div>
-            <p class="no-send-note">Approval saves this to the demo review queue. Nothing is sent to a client.</p>
-          </article>
-        </section>
-      </main>
-    </div>
-
-    <div class="dialog-backdrop" id="comparison-dialog" hidden>
-      <section class="comparison-dialog" role="dialog" aria-modal="true" aria-labelledby="comparison-title">
-        <div class="dialog-heading">
-          <div><span class="section-kicker">SAME CLIENT INQUIRY · TWO APPROACHES</span><h2 id="comparison-title">Why context changes the response</h2></div>
-          <button class="dialog-close" id="dialog-close" type="button" aria-label="Close comparison">×</button>
-        </div>
-        <div class="comparison-grid">
-          <article class="comparison-panel generic-panel">
-            <span class="comparison-label">GENERIC AI</span>
-            <p id="generic-response">Thank you for your interest in the GMT-Master II. Availability may vary. Please contact the store or visit us for more information.</p>
-            <ul><li>No relationship context</li><li>Generic service language</li><li>No concrete next step</li></ul>
-          </article>
-          <article class="comparison-panel concierge-panel">
-            <div class="comparison-topline"><span class="comparison-label">CONTEXT-AWARE COPILOT</span><span class="pass-pill mini">✓ Safe</span></div>
-            <p id="comparison-draft">Great to hear from you. I remember our conversation about the GMT-Master II. I’d be glad to connect this afternoon and continue the conversation in person.</p>
-            <ul><li id="comparison-client-detail">Recognizes a five-year relationship</li><li>Protects restricted inventory details</li><li id="comparison-next-step">Offers Sarah’s actual available times</li></ul>
-          </article>
+      <section class="case-switcher" aria-label="Choose a client example">
+        <span>Show me:</span>
+        <div class="switch-buttons" role="tablist" aria-label="Client examples">
+          <button class="case-button active" id="existing-tab" role="tab" aria-selected="true" data-case="existing" type="button">An existing client</button>
+          <button class="case-button" id="new-tab" role="tab" aria-selected="false" data-case="new" type="button">A first-time customer</button>
         </div>
       </section>
-    </div>
+
+      <section class="process" aria-label="How the reply is prepared">
+        <div><span>1</span><p><strong>Read the email</strong><small>Understand what they need</small></p></div>
+        <b aria-hidden="true">→</b>
+        <div><span>2</span><p><strong>Use client history</strong><small>Only approved information</small></p></div>
+        <b aria-hidden="true">→</b>
+        <div><span>3</span><p><strong>Prepare the reply</strong><small>Advisor reviews and sends</small></p></div>
+      </section>
+
+      <section class="demo-workspace" aria-label="Email and suggested reply">
+        <article class="email-card">
+          <div class="card-topline">
+            <span class="plain-label">CUSTOMER EMAIL</span>
+            <span class="client-type" id="client-type">Existing client · 5 years</span>
+          </div>
+
+          <div class="sender">
+            <span class="avatar" id="client-initials">AM</span>
+            <div><h2 id="client-name">Alex Morgan</h2><p id="email-meta">Today at 11:42 AM · To Sarah</p></div>
+          </div>
+
+          <blockquote id="customer-email">Hey Sarah — any luck with the GMT we talked about? If you’ve got one, I can come by this afternoon.</blockquote>
+
+          <div class="known-context">
+            <p>Useful context already on file</p>
+            <ul id="context-list">
+              <li>Sarah is Alex’s advisor</li>
+              <li>They discussed the GMT-Master II</li>
+              <li>Alex purchased a Rolex in 2023</li>
+            </ul>
+          </div>
+
+          <button class="primary-button" id="prepare-button" type="button"><span>Prepare a tailored reply</span><b aria-hidden="true">→</b></button>
+        </article>
+
+        <div class="direction-arrow" aria-hidden="true">→</div>
+
+        <article class="reply-card" id="reply-card">
+          <div class="card-topline">
+            <span class="plain-label">SUGGESTED REPLY</span>
+            <span class="ready-label">Ready for advisor review</span>
+          </div>
+
+          <div class="reply-to"><span>To</span><strong id="reply-recipient">Alex Morgan</strong></div>
+          <textarea id="reply-text" aria-label="Suggested reply">Hi Alex,
+
+Great to hear from you. I remember our conversation about the GMT-Master II. I’d be glad to connect this afternoon and continue the conversation in person.
+
+I have time at 2:30 or 4:00 today—would either work for you?
+
+Sarah</textarea>
+
+          <div class="checks">
+            <p>What the system handled</p>
+            <ul id="checks-list">
+              <li><span>✓</span> Made the reply personal to Alex</li>
+              <li><span>✓</span> Did not reveal or promise inventory</li>
+              <li><span>✓</span> Used Sarah’s available appointment times</li>
+            </ul>
+          </div>
+
+          <div class="review-actions">
+            <button class="secondary-button" id="rewrite-button" type="button">Try another version</button>
+            <button class="approve-button" id="approve-button" type="button">Mark ready for Sarah</button>
+          </div>
+          <p class="nothing-sent">Demo only — nothing is emailed or scheduled.</p>
+        </article>
+      </section>
+
+      <section class="appointment" aria-labelledby="appointment-title">
+        <div class="appointment-copy">
+          <span class="calendar-icon" aria-hidden="true">17</span>
+          <div><p class="plain-label">OPTIONAL NEXT STEP</p><h2 id="appointment-title">Offer a time with the right advisor</h2><p id="appointment-description">Sarah is Alex’s advisor and has openings this afternoon.</p></div>
+        </div>
+        <div class="time-options" id="time-options" aria-label="Available times">
+          <button class="time-button active" type="button">2:30 PM</button>
+          <button class="time-button" type="button">4:00 PM</button>
+        </div>
+        <button class="use-time-button" id="use-time-button" type="button">Use 2:30 PM in reply</button>
+      </section>
+
+      <section class="plain-explanation" aria-label="What this demonstration proves">
+        <h2>That’s the whole idea.</h2>
+        <p>Instead of starting every email from scratch, the advisor gets a complete first draft that reflects the client relationship, follows approved communication rules, and can include a real available appointment time.</p>
+      </section>
+    </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite" hidden>
-      <span class="toast-check">✓</span>
-      <div><strong id="toast-title">Draft approved</strong><span id="toast-copy">Saved to the demo review queue. Nothing was sent.</span></div>
+      <span>✓</span><div><strong id="toast-title">Reply ready</strong><p id="toast-message">Saved for advisor review. Nothing was sent.</p></div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
